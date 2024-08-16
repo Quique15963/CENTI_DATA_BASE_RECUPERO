@@ -1,0 +1,34 @@
+﻿USE [BD_CENTINELA]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF NOT EXISTS (
+		SELECT *
+		FROM sys.objects
+		WHERE object_id = OBJECT_ID(N'[cent].[AJUSTE_DEBITO_CUENTAS]')
+			AND type IN (N'U')
+		)
+BEGIN
+
+	CREATE TABLE [cent].[AJUSTE_DEBITO_CUENTAS](
+		[ID_OPERACION] [int] IDENTITY(1,1) NOT NULL,
+		[CP_CIC] [varchar](12) NULL,
+		[CUENTA] [varchar](26) NULL,
+		[MONEDA] [varchar](3) NULL,
+		[CP_APLICATIVO] [varchar](3) NULL,
+		[LOADING_DATE] [varchar](12) NULL,
+		[TYPE_NOT] [varchar](3) NULL,
+		[ACCOUNT_NUMBER] [varchar](50) NULL,
+		[ACCOUNT_TYPE] [varchar](3) NULL,
+		[CHANNEL] [varchar](50) NULL,
+		[FECHA_REGISTRO] [datetime] NULL,
+		[FECHA_ACTUALIZACION] [datetime] NULL,
+		[ESTADO] [int] NULL
+	) ON [PRIMARY];
+END
+GO

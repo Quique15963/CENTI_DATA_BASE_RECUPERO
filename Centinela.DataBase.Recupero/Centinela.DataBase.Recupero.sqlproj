@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Centinela.DataBase.Recupero</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{413b212b-715a-49cf-8f7d-6a9b4f2effed}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Centinela.DataBase.Recupero</RootNamespace>
+    <AssemblyName>Centinela.DataBase.Recupero</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Centinela" />
+    <Folder Include="RepExt" />
+    <Folder Include="Centinela_RolBack" />
+    <Folder Include="RepExt_RolBack" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Centinela\07.-[cent].[AJUSTE_DEBITO_CUENTAS_CTA_GET].sql" />
+    <None Include="Centinela\13.-[cent].[AJUSTE_COBRO_X_CIC_GET].sql" />
+    <None Include="Centinela\02.-[cent].[AJUSTE_COBRO_MOD_ESTADO].sql" />
+    <None Include="Centinela\03.-[cent].[AJUSTE_CUENTAS_COBRO_INSERT].sql" />
+    <None Include="Centinela\04.-[cent].[AJUSTE_DEBITO_CUENTAS_DELETE].sql" />
+    <None Include="Centinela\05.-[cent].[AJUSTE_CLIENTE_COBRO_INSERT].sql" />
+    <None Include="Centinela\06.-[cent].[AJUSTE_CLIENTE_COBRO_X_LOTE_DELETE].sql" />
+    <None Include="Centinela\00.-[cent].[AJUSTE_DEBITO_CUENTAS].sql" />
+    <None Include="Centinela\08.-[cent].[GET_LIST_CUENTAS_DEBITADO_ALS].sql" />
+    <None Include="Centinela\09.-[cent].[GET_LIST_CUENTAS_DEBITADO_ALS_MORA].sql" />
+    <None Include="Centinela\10.-[cent].[GET_LIST_CUENTAS_DEBITADO_TRJ].sql" />
+    <None Include="Centinela\11.-[cent].[GET_LIST_CUENTAS_DEBITADO_TRJ_MORA].sql" />
+    <None Include="Centinela\12.-[cent].[AJUSTE_DEBITO_CUENTAS_INSERT].sql" />
+    <None Include="Centinela_RolBack\00.-[cent].[AJUSTE_CENTINELA_ROLBACK].sql" />
+    <None Include="Centinela\01.-[cent].[AJUSTE_CLIENTE_COBRO].sql" />
+    <None Include="Centinela\14.-[cent].[GET_LIST_CUENTAS_DEBITADO_CODEUDORES_ALS_TRJ].sql" />
+    <None Include="Centinela\15.-[cent].[AJUSTE_CLIENTE_COBRO_MOD_ESTADO_UPDATE].sql" />
+    <None Include="Centinela\16.-[cent].[AJUSTE_CLIENTE_COBRO_LOTE_X_FECHA_GET].sql" />
+    <None Include="Centinela\17.-[cent].[AJUSTE_CLIENTE_COBRO_X_LOTE_GET].sql" />
+    <None Include="Centinela\18.-[cent].[AJUSTE_CLIENTE_COBRO_DETALLE_X_LOTE_GET].sql" />
+    <None Include="Centinela\20.-[cent].[AJUSTE_COBRO_GET].sql" />
+    <None Include="Centinela\21.-[cent].[AJUSTE_DEBITO_CUENTAS_INSERT].sql" />
+    <None Include="RepExt\00.-[cent].[TBLCTAPAS_GetById].sql" />
+    <None Include="RepExt_RolBack\00.-[cent].[AJUSTE_CENTINELA_ROLBACK].sql" />
+  </ItemGroup>
+</Project>

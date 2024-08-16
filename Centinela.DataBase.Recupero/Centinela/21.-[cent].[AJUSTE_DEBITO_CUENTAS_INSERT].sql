@@ -1,0 +1,85 @@
+﻿USE [BD_CENTINELA]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF NOT EXISTS (
+		SELECT *
+		FROM sys.objects
+		WHERE object_id = OBJECT_ID(N'[cent].[AJUSTE_DEBITO_CUENTAS_INSERT]')
+			AND type IN (
+				N'P'
+				,N'PC'
+				)
+		)
+BEGIN
+	EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [cent].[AJUSTE_DEBITO_CUENTAS_INSERT] AS'
+END
+GO
+
+ALTER PROCEDURE [cent].[AJUSTE_DEBITO_CUENTAS_INSERT]
+			@CP_CIC varchar(12)
+           ,@CUENTA varchar(26) 
+           ,@MONEDA varchar(3)
+           ,@CP_APLICATIVO varchar(3)
+           ,@LOADING_DATE varchar(12)
+           ,@TYPE_NOT varchar(3)
+           ,@ACCOUNT_NUMBER varchar(50)
+           ,@ACCOUNT_TYPE varchar(3)
+           ,@CHANNEL varchar(50)
+
+AS 
+BEGIN
+	IF EXISTS (SELECT 1 FROM [cent].[AJUSTE_DEBITO_CUENTAS] 
+				WHERE ACCOUNT_NUMBER = @ACCOUNT_NUMBER 
+						AND CUENTA = @CUENTA 
+						AND CP_CIC = @CP_CIC
+						--AND CONVERT(DATE, FECHA_REGISTRO) = CONVERT(DATE, GETDATE())
+						)
+	BEGIN
+		UPDATE [cent].[AJUSTE_DEBITO_CUENTAS]
+		SET 
+			[FECHA_ACTUALIZACION] = GETDATE()
+		WHERE 
+			ACCOUNT_NUMBER = @ACCOUNT_NUMBER
+			AND CUENTA = @CUENTA
+			--AND CONVERT(DATE, FECHA_REGISTRO) = CONVERT(DATE, GETDATE())
+	END
+	ELSE
+	BEGIN
+		INSERT INTO [cent].[AJUSTE_DEBITO_CUENTAS]
+			(
+				[CP_CIC]
+			   ,[CUENTA]
+			   ,[MONEDA]
+			   ,[CP_APLICATIVO]
+			   ,[LOADING_DATE]
+			   ,[TYPE_NOT]
+			   ,[ACCOUNT_NUMBER]
+			   ,[ACCOUNT_TYPE]
+			   ,[CHANNEL]
+			   ,[FECHA_REGISTRO]
+			   ,[FECHA_ACTUALIZACION]
+			   ,[ESTADO]
+			)
+		VALUES
+		   (
+				@CP_CIC
+			   ,@CUENTA
+			   ,@MONEDA
+			   ,@CP_APLICATIVO
+			   ,@LOADING_DATE
+			   ,@TYPE_NOT
+			   ,@ACCOUNT_NUMBER
+			   ,@ACCOUNT_TYPE
+			   ,@CHANNEL
+			   ,GETDATE()
+			   ,GETDATE()
+			   ,0
+			)
+	END
+END;

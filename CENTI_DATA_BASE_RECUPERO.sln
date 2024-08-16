@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35004.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Centinela.DataBase.Recupero", "Centinela.DataBase.Recupero\Centinela.DataBase.Recupero.sqlproj", "{413B212B-715A-49CF-8F7D-6A9B4F2EFFED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{413B212B-715A-49CF-8F7D-6A9B4F2EFFED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{413B212B-715A-49CF-8F7D-6A9B4F2EFFED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{413B212B-715A-49CF-8F7D-6A9B4F2EFFED}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{413B212B-715A-49CF-8F7D-6A9B4F2EFFED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{413B212B-715A-49CF-8F7D-6A9B4F2EFFED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{413B212B-715A-49CF-8F7D-6A9B4F2EFFED}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F641B4D0-62B7-4ECE-9082-E0C6E4988C58}
+	EndGlobalSection
+EndGlobal
